@@ -1,20 +1,14 @@
 # Network troubleshooting
 
-Last modified: 2014-06-09 15:49:42
-
-A few opinionated checklists for network troubleshooting. RHEL/CentOS 7 is assumed.
-
 ## General guidelines
 
 A few best practices when setting up and troubleshooting network services
 
-* **Automate** your tests or at least use a **checklist**
 * Keep your checklist **up-to-date** as you learn new things
 * Be **thorough**, don't skip steps (e.g checking the cables)
 * Follow a **bottom-up** approach according to OSI or TCP/IP model layers
 * **Error messages** usually give a clue of where to look. Google them.
 * Work in **small steps** and verify every step.
-* Don't assume. **Test**.
 * Keep a **backup** copy of the original configuration, and the latest working version.
 * Always **validate the syntax** of config files before applying them
 * Know what **logs** to look at
@@ -29,7 +23,9 @@ A few best practices when setting up and troubleshooting network services
 2. Network layer: local settings
     - Check **IP address**: `ip address`
     - Is there a **default gateway**: `ip route`
-    - Do we have **DNS servers**: `cat /etc/resolv.conf`
+    - Do we have **DNS servers**: `cat /etc/resolv.conf` indien je DNS servers moet instellen, kies voor `8.8.8.8` en `8.8.4.4` dit zijn de DNS servers van Google
+    - Netwerk settings controleren `cat/vi etc/sysconfig/network-scripts/ifcfg-<INTERFACE>`
+    - Netwerk kaarten controleren
 3. Network layer: remote
     - Ping default gateway (*)
     - Query DNS servers: `dig www.example.com @x.y.z.w`
